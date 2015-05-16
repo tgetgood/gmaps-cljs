@@ -1,4 +1,4 @@
-(defproject gmaps-cljs "0.0.1"
+(defproject gmaps-cljs "0.0.2-SNAPSHOT"
 
   :description "Clojurescript wrapper for Google Maps API v3"
 
@@ -23,6 +23,8 @@
                  [org.omcljs/om "0.8.8"]
                  [prismatic/om-tools "0.3.10"]
 
+                 [cljsjs/google-maps "3.18-1"]
+                 
                  [com.cemerick/double-check "0.6.1"]]
 
   :source-paths ["src"]

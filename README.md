@@ -27,8 +27,8 @@ Define the content of the page as a map
    :zoom 12
    :mapTypeId google.maps.MapTypeId.ROADMAP
 
-   :markers #{{:lat 0
-               :lng 0
+   :markers #{{:position {:lat 0
+                          :lng 0}
                :title "Nexus of the universe"}}}
 ```
 
@@ -64,17 +64,24 @@ update.
 
 ## Working
 
-* The map embeds!
+* The map itself!
+* Geocoding
 * Markers
-* Directions (mostly)
+* Directions (basic, mostly)
 
 ## TODO
 
+* Create a "map pool" so that map objects are reused since they are
+  very hard to get GCed.
+* Geolocation
 * Callbacks on markers
+* Advanced routes
+* street view
 * Polygons
+* Map interaction events
 * Reconsider all names
 * Simpler API
-* 
+* Tons 
 
 ## License
 
