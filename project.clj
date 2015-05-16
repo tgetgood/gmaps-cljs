@@ -1,8 +1,14 @@
-(defproject gmaps-cljs "0.1.0-SNAPSHOT"
-  :description "CLJS wrapper for Google Maps APIv3"
-  :url ""
+(defproject gmaps-cljs "0.0.1"
+
+  :description "Clojurescript wrapper for Google Maps API v3"
+
+  :url "https://github.com/tgetgood/gmaps-cljs"
+
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :scm {:name "git"
+        :url "https://github.com/tgetgood/gmaps-cljs"}
 
   :profiles {:dev {:plugins [[com.cemerick/austin "0.1.6"]]}}
 
