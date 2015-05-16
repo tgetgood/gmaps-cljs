@@ -66,13 +66,13 @@ update.
 
 * The map itself!
 * Geocoding
-* Markers
 * Directions (basic, mostly)
 
 ## TODO
 
 * Create a "map pool" so that map objects are reused since they are
   very hard to get GCed.
+* Markers
 * Geolocation
 * Callbacks on markers
 * Advanced routes
