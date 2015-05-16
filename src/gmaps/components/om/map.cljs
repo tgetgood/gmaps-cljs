@@ -16,6 +16,5 @@
     ;; Release the google.maps.Map for this component
     (mw/detach-map! (om/get-node owner "map-canvas")))
   (render [_]
-    (dom/div {:id "map-view"}
-      (dom/div {:id "map-canvas" :ref "map-canvas"}))))
+    (dom/div {:id "map-canvas" :ref "map-canvas"})))
 

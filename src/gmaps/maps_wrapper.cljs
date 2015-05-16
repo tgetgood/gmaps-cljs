@@ -50,7 +50,7 @@
         (do 
           (.setMap dr map-obj)
           (.setDirections dr (:directions new-data))))))
-  (when (md/same-place (.getCenter map-obj) (-> new-data :opts :center))
+  (when-not (md/same-place (.getCenter map-obj) (-> new-data :opts :center))
     (.setCenter map-obj (-> new-data :opts :center clj->js))))
 
 (defn update-map! [elem new-data]
@@ -64,15 +64,17 @@
   already exist and updates it to match the given data. If there is already a
   map attached it is modified to show the new data." 
   [elem map-data]
+  (.log js/console (clj->js map-data))
   (when (valid? map-data) 
     (when (not (contains? @maps elem))
       (let [map-obj (google.maps.Map. elem (clj->js (:opts map-data)))]
+        ;; (.setCenter map-obj (-> map-data :opts :center clj->js))
         (swap! maps assoc elem {:map-obj map-obj :map-data map-data})
-        (update-map! elem map-data)))))
+        (update-map* {:map-obj map-obj :map-data map-data} map-data)))))
 
 (defn detach-map!
   [elem]
-  (if-let [map-obj (get @maps elem)]
+  (if-let [{:keys [map-obj]} (get @maps elem)]
     (do 
       (swap! maps (fn [s] (dissoc s elem)))
       (delete-directions-renderer! map-obj))))
