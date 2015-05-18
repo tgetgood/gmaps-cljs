@@ -62,18 +62,17 @@ and attach it to the dom
 * The map itself!
 * Geocoding
 * Directions (basic, mostly)
+* Markers
 
 ## TODO
 
 * Create a "map pool" so that map objects are reused since they are
   very hard to get GCed.
-* Markers
 * Geolocation
-* Callbacks on markers
+* Callbacks on markers / Map interaction events / Event handling in general
 * Advanced routes
 * street view
 * Polygons
-* Map interaction events
 * Reconsider all names
 * Simpler API
 * Tons 
