@@ -1,4 +1,4 @@
-(defproject gmaps-cljs "0.0.2-SNAPSHOT"
+(defproject gmaps-cljs "0.0.2"
 
   :description "Clojurescript wrapper for Google Maps API v3"
 
