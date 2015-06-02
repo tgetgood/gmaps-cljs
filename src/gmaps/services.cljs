@@ -1,6 +1,7 @@
 (ns gmaps.services
    (:require-macros [cljs.core.async.macros :refer [go]])
-   (:require [cljs.core.async :refer [>! <! chan put!]]))
+   (:require [cljs.core.async :refer [>! <! chan put!]]
+             [gmaps.location :as loc]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; GeoCoding
@@ -25,7 +26,7 @@
     (go (let [sitename (:name site)
               geo (<! (get-geocode sitename))]
           (>! out {:sitename sitename 
-                   :location (google-geocode-to-location geo)})))
+                   :location (loc/geocode-to-location geo)})))
     out))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -34,11 +35,11 @@
 
 (def ^:private directions-service (atom nil))
 
-(defn get-directions
+#_(defn get-directions
   [opts]
   (compare-and-set! directions-service nil (google.maps.DirectionsService.))
   (let [out (chan)
-        popts (assoc opts :origin (goog-lat-lng (:origin opts)))]
+        popts (assoc opts :origin (loc/lat-lng (:origin opts)))]
     (.route @directions-service (clj->js popts)
             (fn [res stat]
               (if (= stat "OK")
