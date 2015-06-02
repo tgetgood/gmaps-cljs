@@ -36,8 +36,5 @@
                         :compiler {:pretty-print true
                                    :optimizations :whitespace
                                    :cache-analysis true
-                                   :preamble ["react/react.js"]
-                                   :externs
-                                   ["bower_componenets/react-externs/externs.js"]
                                    :output-to "target/test/test.js"}}]}
   )
